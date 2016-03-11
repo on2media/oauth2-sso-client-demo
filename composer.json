@@ -1,0 +1,14 @@
+{
+    "name": "on2media/oauth2-sso-demo-client",
+    "description": "Demonstration of an OAuth2 single sign-on client",
+    "version": "0.1.0",
+    "type": "project",
+    "keywords": ["on2 media", "oauth2", "sso", "single sign-on", "demo"],
+    "license": "MIT",
+    "require": {
+        "league/oauth2-client": "^1.3"
+    },
+    "require-dev": {
+        "vlucas/phpdotenv": "^2.2"
+    }
+}
