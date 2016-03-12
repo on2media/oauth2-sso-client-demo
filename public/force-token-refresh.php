@@ -2,10 +2,10 @@
 
 require_once __DIR__ . '/../bootstrap.php';
 
-checkSignedIn($oAuth2Provider);
+$client->checkSignedIn();
 
 $_SESSION['auth']['expires'] = 0;
 
 header($_SERVER['SERVER_PROTOCOL'] . ' 302 Found');
-header('Location: ' . getHomeUrl());
+header('Location: ' . On2Media\OAuth2SSO\Client::getHomeUrl());
 exit;

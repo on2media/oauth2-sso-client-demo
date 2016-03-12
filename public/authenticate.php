@@ -7,7 +7,7 @@ if (!isset($_GET['success'])) {
     // it's the first time at this page, so check if the visitor is signed in at the provider
 
     header($_SERVER['SERVER_PROTOCOL'] . ' 302 Found');
-    header('Location: ' . buildSignInUrl());
+    header('Location: ' . On2Media\OAuth2SSO\Client::buildSignInUrl());
     exit;
 
 } elseif ($_GET['success'] == 'true') {
@@ -26,12 +26,12 @@ if (!isset($_GET['success'])) {
 if (!isset($_GET['welcome'])) {
 
     // if `welcome` isn't set then a sign in attempt has been made
-    $_SESSION['failed_sign_in'] = true;
+    $client->getEventListener()->failedSignIn();
 
 }
 
 // redirect to the sign in form
 
 header($_SERVER['SERVER_PROTOCOL'] . ' 302 Found');
-header('Location: ' . getSignInUrl());
+header('Location: ' . On2Media\OAuth2SSO\Client::getSignInUrl());
 exit;

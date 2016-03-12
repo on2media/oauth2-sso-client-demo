@@ -42,15 +42,15 @@ try {
     // here we'd check if we have a linked account amongst our users
 
     header($_SERVER['SERVER_PROTOCOL'] . ' 302 Found');
-    header('Location: ' . getHomeUrl());
+    header('Location: ' . On2Media\OAuth2SSO\Client::getHomeUrl());
     exit;
 
 } catch (\League\OAuth2\Client\Provider\Exception\IdentityProviderException $e) {
 
-    $_SESSION['failed_sign_in'] = true;
+    $client->getEventListener()->failedSignIn();
 
     header($_SERVER['SERVER_PROTOCOL'] . ' 302 Found');
-    header('Location: ' . getSignInUrl());
+    header('Location: ' . On2Media\OAuth2SSO\Client::getSignInUrl());
     exit;
 
 }

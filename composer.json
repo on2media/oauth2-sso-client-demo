@@ -10,5 +10,10 @@
     },
     "require-dev": {
         "vlucas/phpdotenv": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "On2Media\\OAuth2SSO\\": "src/"
+        }
     }
 }

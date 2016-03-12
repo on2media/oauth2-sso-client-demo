@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../bootstrap.php';
 
-checkSignedIn($oAuth2Provider);
+$client->checkSignedIn();
 
 ?>
 

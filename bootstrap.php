@@ -1,13 +1,14 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/includes.php';
 
 session_name('oauth2-sso-demo-client');
 session_start();
 
-$dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->load();
+if (class_exists('Dotenv\Dotenv')) {
+    $dotenv = new Dotenv\Dotenv(__DIR__);
+    $dotenv->load();
+}
 
 $oAuth2Provider = new \League\OAuth2\Client\Provider\GenericProvider(
     [
@@ -17,4 +18,9 @@ $oAuth2Provider = new \League\OAuth2\Client\Provider\GenericProvider(
         'urlAccessToken'          => getenv('OAUTH2_URL_ACCESS_TOKEN'),
         'urlResourceOwnerDetails' => getenv('OAUTH2_URL_RESOURCE_OWNER_DETAILS')
     ]
+);
+
+$client = new On2Media\OAuth2SSO\Client(
+    $oAuth2Provider,
+    new On2Media\OAuth2SSO\EventListener()
 );

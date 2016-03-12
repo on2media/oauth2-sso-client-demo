@@ -5,7 +5,7 @@ require_once __DIR__ . '/../bootstrap.php';
 if (isset($_SESSION['auth'])) {
 
     header($_SERVER['SERVER_PROTOCOL'] . ' 302 Found');
-    header('Location: ' . getHomeUrl());
+    header('Location: ' . On2Media\OAuth2SSO\Client::getHomeUrl());
     exit;
 
 }
@@ -48,7 +48,7 @@ if (isset($_SESSION['timed_out']) && $_SESSION['timed_out'] == true) {
     </div>
 <?php endif; ?>
 
-<form action="<?=buildSignInUrl();?>" method="post">
+<form action="<?=On2Media\OAuth2SSO\Client::buildSignInUrl();?>" method="post">
     <div>
         <label for="username">Username</label>
         <input type="text" name="username" value="" id="username">
