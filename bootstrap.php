@@ -22,5 +22,6 @@ $oAuth2Provider = new \League\OAuth2\Client\Provider\GenericProvider(
 
 $client = new On2Media\OAuth2SSO\Client(
     $oAuth2Provider,
+    new On2Media\OAuth2SSO\LocalStorage(),
     new On2Media\OAuth2SSO\EventListener()
 );

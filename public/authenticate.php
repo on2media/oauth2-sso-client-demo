@@ -15,7 +15,7 @@ if (!isset($_GET['success'])) {
     // we're signed in, so let's get a token
 
     $authorizationUrl = $oAuth2Provider->getAuthorizationUrl();
-    $_SESSION['oauth2state'] = $oAuth2Provider->getState();
+    On2Media\OAuth2SSO\LocalStorage::setOAuth2State($oAuth2Provider->getState());
 
     header($_SERVER['SERVER_PROTOCOL'] . ' 302 Found');
     header('Location: ' . $authorizationUrl);

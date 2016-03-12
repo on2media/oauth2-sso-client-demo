@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../bootstrap.php';
 
-if (isset($_SESSION['auth'])) {
+if (On2Media\OAuth2SSO\LocalStorage::getAuth()) {
 
     header($_SERVER['SERVER_PROTOCOL'] . ' 302 Found');
     header('Location: ' . On2Media\OAuth2SSO\Client::getHomeUrl());

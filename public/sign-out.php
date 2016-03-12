@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../bootstrap.php';
 
-unset($_SESSION['auth']);
+On2Media\OAuth2SSO\LocalStorage::unsetAuth();
 $client->getEventListener()->signedOut();
 
 header($_SERVER['SERVER_PROTOCOL'] . ' 302 Found');

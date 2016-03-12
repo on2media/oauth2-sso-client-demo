@@ -2,15 +2,12 @@
 
 require_once __DIR__ . '/../bootstrap.php';
 
-if (empty($_GET['state']) ||
-    !isset($_SESSION['oauth2state']) ||
-    $_GET['state'] !== $_SESSION['oauth2state']
-) {
-    unset($_SESSION['oauth2state']);
+if (empty($_GET['state']) || $_GET['state'] !== On2Media\OAuth2SSO\LocalStorage::getOAuth2State()) {
+    On2Media\OAuth2SSO\LocalStorage::unsetOAuth2State();
     exit('Invalid or missing state');
 }
 
-unset($_SESSION['oauth2state']);
+On2Media\OAuth2SSO\LocalStorage::unsetOAuth2State();
 
 if (isset($_GET['error'])) {
     echo $_GET['error'] . ': ' . $_GET['error_description'];
@@ -32,12 +29,14 @@ try {
 
     $resourceOwner = $oAuth2Provider->getResourceOwner($accessToken);
 
-    $_SESSION['auth'] = [
-        'access_token' => $accessToken->getToken(),
-        'refresh_token' => $accessToken->getRefreshToken(),
-        'expires' => $accessToken->getExpires(),
-        'resource_owner' => $resourceOwner->toArray(),
-    ];
+    On2Media\OAuth2SSO\LocalStorage::setAuth(
+        new On2Media\OAuth2SSO\Authorisation(
+            $accessToken->getToken(),
+            $accessToken->getRefreshToken(),
+            $accessToken->getExpires(),
+            $resourceOwner->toArray()
+        )
+    );
 
     // here we'd check if we have a linked account amongst our users
 
