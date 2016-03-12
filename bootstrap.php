@@ -10,7 +10,7 @@ if (class_exists('Dotenv\Dotenv')) {
     $dotenv->load();
 }
 
-$client = new On2Media\OAuth2SSO\Client(
+$client = new On2Media\OAuth2SSOClient\Client(
     [
         'sign_in_url' => 'sign-in.php',
         'authenticate_url' => 'authenticate.php',
