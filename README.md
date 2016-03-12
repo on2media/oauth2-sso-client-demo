@@ -1,4 +1,4 @@
-# OAuth2 Single Sign-On Demo Client
+# OAuth2 Single Sign-On Client Demo
 
 # Setup
 

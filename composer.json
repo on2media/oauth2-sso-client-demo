@@ -6,14 +6,15 @@
     "keywords": ["on2 media", "oauth2", "sso", "single sign-on", "demo"],
     "license": "MIT",
     "require": {
-        "league/oauth2-client": "^1.3"
+        "on2media/oauth2-sso-client": "dev-master"
     },
     "require-dev": {
         "vlucas/phpdotenv": "^2.2"
     },
-    "autoload": {
-        "psr-4": {
-            "On2Media\\OAuth2SSO\\": "src/"
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/on2media/oauth2-sso-client"
         }
-    }
+    ]
 }

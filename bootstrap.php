@@ -2,7 +2,7 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-session_name('oauth2-sso-demo-client');
+session_name('oauth2-sso-client-demo');
 session_start();
 
 if (class_exists('Dotenv\Dotenv')) {
