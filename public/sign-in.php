@@ -2,12 +2,10 @@
 
 require_once __DIR__ . '/../bootstrap.php';
 
-if (On2Media\OAuth2SSO\LocalStorage::getAuth()) {
-
+if (isset($_SESSION['auth'])) {
     header($_SERVER['SERVER_PROTOCOL'] . ' 302 Found');
-    header('Location: ' . On2Media\OAuth2SSO\Client::getHomeUrl());
+    header('Location: index.php');
     exit;
-
 }
 
 $failedSignIn = false;
@@ -48,7 +46,7 @@ if (isset($_SESSION['timed_out']) && $_SESSION['timed_out'] == true) {
     </div>
 <?php endif; ?>
 
-<form action="<?=On2Media\OAuth2SSO\Client::buildSignInUrl();?>" method="post">
+<form action="<?=$client->buildSignInUrl();?>" method="post">
     <div>
         <label for="username">Username</label>
         <input type="text" name="username" value="" id="username">

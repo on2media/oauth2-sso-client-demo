@@ -1,5 +1,5 @@
 {
-    "name": "on2media/oauth2-sso-demo-client",
+    "name": "on2media/oauth2-sso-client-demo",
     "description": "Demonstration of an OAuth2 single sign-on client",
     "version": "0.1.0",
     "type": "project",

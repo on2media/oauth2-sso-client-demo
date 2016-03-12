@@ -10,18 +10,16 @@ if (class_exists('Dotenv\Dotenv')) {
     $dotenv->load();
 }
 
-$oAuth2Provider = new \League\OAuth2\Client\Provider\GenericProvider(
-    [
-        'clientId'                => getenv('OAUTH2_CLIENT_ID'),
-        'clientSecret'            => getenv('OAUTH2_CLIENT_SECRET'),
-        'urlAuthorize'            => getenv('OAUTH2_URL_AUTHORIZE'),
-        'urlAccessToken'          => getenv('OAUTH2_URL_ACCESS_TOKEN'),
-        'urlResourceOwnerDetails' => getenv('OAUTH2_URL_RESOURCE_OWNER_DETAILS')
-    ]
-);
-
 $client = new On2Media\OAuth2SSO\Client(
-    $oAuth2Provider,
-    new On2Media\OAuth2SSO\LocalStorage(),
-    new On2Media\OAuth2SSO\EventListener()
+    [
+        'sign_in_url' => 'sign-in.php',
+        'authenticate_url' => 'authenticate.php',
+        'client_id' => getenv('OAUTH2_CLIENT_ID'),
+        'client_secret' => getenv('OAUTH2_CLIENT_SECRET'),
+        'authorize_url' => getenv('OAUTH2_URL_AUTHORIZE'),
+        'access_token_url' => getenv('OAUTH2_URL_ACCESS_TOKEN'),
+        'resource_owner_details_url' => getenv('OAUTH2_URL_RESOURCE_OWNER_DETAILS'),
+        'sso_sign_in_url' => getenv('OAUTH2_URL_SSO_SIGN_IN'),
+        'sso_sign_out_url' => getenv('OAUTH2_URL_SSO_SIGN_OUT'),
+    ]
 );
