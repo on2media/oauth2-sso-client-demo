@@ -26,6 +26,8 @@ if (isset($_SESSION['timed_out']) && $_SESSION['timed_out'] == true) {
     unset($_SESSION['timed_out']);
 }
 
+$hasReturnUrl = (isset($_SESSION['return_url']));
+
 ?>
 
 <?php if ($failedSignIn == true): ?>
@@ -43,6 +45,10 @@ if (isset($_SESSION['timed_out']) && $_SESSION['timed_out'] == true) {
 <?php if ($timedOut == true): ?>
     <div>
         <strong>Your session has timed out or you signed out of another service.</strong>
+    </div>
+<?php elseif ($hasReturnUrl == true): ?>
+    <div>
+        <strong>You must sign in to access that resource.</strong>
     </div>
 <?php endif; ?>
 
