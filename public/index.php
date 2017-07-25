@@ -6,7 +6,9 @@ $client->checkSignedIn();
 
 ?>
 
-<a href="force-token-refresh.php">Refresh Token</a> | <a href="sign-out.php">Sign Out</a>
+<a href="page2.php">Page 2</a> |
+<a href="force-token-refresh.php">Refresh Token</a> |
+<a href="sign-out.php">Sign Out</a>
 
 <p>
     Hello, <strong><?=htmlspecialchars($_SESSION['auth']->getResourceOwner()['name']);?></strong>

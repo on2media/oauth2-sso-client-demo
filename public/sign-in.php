@@ -2,6 +2,10 @@
 
 require_once __DIR__ . '/../bootstrap.php';
 
+if ($usingLite) {
+    exit('Not available');
+}
+
 if (isset($_SESSION['auth'])) {
     header($_SERVER['SERVER_PROTOCOL'] . ' 302 Found');
     header('Location: index.php');
