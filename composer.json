@@ -6,9 +6,7 @@
     "keywords": ["on2 media", "oauth2", "sso", "single sign-on", "demo"],
     "license": "MIT",
     "require": {
-        "on2media/oauth2-sso-client": "dev-master"
-    },
-    "require-dev": {
+        "on2media/oauth2-sso-client": "dev-master",
         "vlucas/phpdotenv": "^2.2"
     },
     "repositories": [

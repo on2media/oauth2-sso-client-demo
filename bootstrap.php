@@ -8,10 +8,8 @@ require __DIR__ . '/vendor/autoload.php';
 session_name('oauth2-sso-client-demo');
 session_start();
 
-if (class_exists('Dotenv\Dotenv')) {
-    $dotenv = new Dotenv\Dotenv(__DIR__);
-    $dotenv->load();
-}
+$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv->load();
 
 $params = [
     'client_id' => getenv('OAUTH2_CLIENT_ID'),
