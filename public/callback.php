@@ -4,7 +4,7 @@ require_once __DIR__ . '/../bootstrap.php';
 
 try {
     $client->handleCallback();
-} catch (On2Media\OAuth2SSO\Exception $e) {
+} catch (On2Media\OAuth2SSOClient\Exception $e) {
     echo 'Exception: ' . $e->getMessage();
     exit;
 }
