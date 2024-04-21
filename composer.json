@@ -1,18 +1,11 @@
 {
     "name": "on2media/oauth2-sso-client-demo",
     "description": "Demonstration of an OAuth2 single sign-on client",
-    "version": "0.1.0",
     "type": "project",
     "keywords": ["on2 media", "oauth2", "sso", "single sign-on", "demo"],
     "license": "MIT",
     "require": {
-        "on2media/oauth2-sso-client": "dev-master",
-        "vlucas/phpdotenv": "^2.2"
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/on2media/oauth2-sso-client"
-        }
-    ]
+        "on2media/oauth2-sso-client": "^0.2",
+        "vlucas/phpdotenv": "^5.5"
+    }
 }

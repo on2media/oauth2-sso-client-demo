@@ -8,17 +8,17 @@ require __DIR__ . '/vendor/autoload.php';
 session_name('oauth2-sso-client-demo');
 session_start();
 
-$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 $params = [
-    'client_id' => getenv('OAUTH2_CLIENT_ID'),
-    'client_secret' => getenv('OAUTH2_CLIENT_SECRET'),
-    'authorize_url' => getenv('OAUTH2_URL_AUTHORIZE'),
-    'access_token_url' => getenv('OAUTH2_URL_ACCESS_TOKEN'),
-    'resource_owner_details_url' => getenv('OAUTH2_URL_RESOURCE_OWNER_DETAILS'),
-    'sso_sign_in_url' => getenv('OAUTH2_URL_SSO_SIGN_IN'),
-    'sso_sign_out_url' => getenv('OAUTH2_URL_SSO_SIGN_OUT'),
+    'client_id' => $_ENV['OAUTH2_CLIENT_ID'],
+    'client_secret' => $_ENV['OAUTH2_CLIENT_SECRET'],
+    'authorize_url' => $_ENV['OAUTH2_URL_AUTHORIZE'],
+    'access_token_url' => $_ENV['OAUTH2_URL_ACCESS_TOKEN'],
+    'resource_owner_details_url' => $_ENV['OAUTH2_URL_RESOURCE_OWNER_DETAILS'],
+    'sso_sign_in_url' => $_ENV['OAUTH2_URL_SSO_SIGN_IN'],
+    'sso_sign_out_url' => $_ENV['OAUTH2_URL_SSO_SIGN_OUT'],
 ];
 
 if (!$usingLite) {
