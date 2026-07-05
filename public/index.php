@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__.'/../bootstrap.php';
 
 $client->checkSignedIn();
 
@@ -11,22 +11,22 @@ $client->checkSignedIn();
 <a href="sign-out.php">Sign Out</a>
 
 <p>
-    Hello, <strong><?=htmlspecialchars($_SESSION['auth']->getResourceOwner()['name']);?></strong>
-    with email address <strong><?=htmlspecialchars($_SESSION['auth']->getResourceOwner()['email']);?></strong>.
-    You have successfully signed in with username <strong><?=htmlspecialchars($_SESSION['auth']->getResourceOwner()['id']);?></strong>
-    to the <strong><?=htmlspecialchars($_SESSION['auth']->getResourceOwner()['your_client_id']);?></strong>
+    Hello, <strong><?php echo htmlspecialchars($_SESSION['auth']->getResourceOwner()['name']); ?></strong>
+    with email address <strong><?php echo htmlspecialchars($_SESSION['auth']->getResourceOwner()['email']); ?></strong>.
+    You have successfully signed in with username <strong><?php echo htmlspecialchars($_SESSION['auth']->getResourceOwner()['id']); ?></strong>
+    to the <strong><?php echo htmlspecialchars($_SESSION['auth']->getResourceOwner()['your_client_id']); ?></strong>
     client.
 </p>
 
 <p>
-    Your access token is <strong><?=htmlspecialchars($_SESSION['auth']->getAccessToken());?></strong>
-    which expires at <strong><?=date('Y-m-d H:i:s', $_SESSION['auth']->getExpires());?></strong>.
-    Your refresh token is <strong><?=htmlspecialchars($_SESSION['auth']->getRefreshToken());?></strong>.
+    Your access token is <strong><?php echo htmlspecialchars($_SESSION['auth']->getAccessToken()); ?></strong>
+    which expires at <strong><?php echo date('Y-m-d H:i:s', $_SESSION['auth']->getExpires()); ?></strong>.
+    Your refresh token is <strong><?php echo htmlspecialchars($_SESSION['auth']->getRefreshToken()); ?></strong>.
 </p>
 
 <p>
-    The time now is <strong><?=date('Y-m-d H:i:s');?></strong>.<br>
-    Timeout at <strong><?=\DateTime::createFromFormat(\DateTime::ATOM, $_SESSION['auth']->getResourceOwner()['timeout']['due_at'])->format('Y-m-d H:i:s');?></strong>.
+    The time now is <strong><?php echo date('Y-m-d H:i:s'); ?></strong>.<br>
+    Timeout at <strong><?php echo DateTime::createFromFormat(DateTime::ATOM, $_SESSION['auth']->getResourceOwner()['timeout']['due_at'])->format('Y-m-d H:i:s'); ?></strong>.
 </p>
 
 <div id="timeout" style="border: 1px solid black; padding: 10px; min-height: 2em;"></div>

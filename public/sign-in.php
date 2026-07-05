@@ -1,13 +1,13 @@
 <?php
 
-require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__.'/../bootstrap.php';
 
 if ($usingLite) {
     exit('Not available');
 }
 
 if (isset($_SESSION['auth'])) {
-    header($_SERVER['SERVER_PROTOCOL'] . ' 302 Found');
+    header($_SERVER['SERVER_PROTOCOL'].' 302 Found');
     header('Location: index.php');
     exit;
 }
@@ -56,7 +56,7 @@ $hasReturnUrl = (isset($_SESSION['return_url']));
     </div>
 <?php endif; ?>
 
-<form action="<?=$client->buildSignInUrl();?>" method="post">
+<form action="<?php echo $client->buildSignInUrl(); ?>" method="post">
     <div>
         <label for="username">Username</label>
         <input type="text" name="username" value="" id="username">
