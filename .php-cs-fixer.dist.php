@@ -2,7 +2,7 @@
 
 $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__.'/public')
-;
+    ->append([__DIR__.'/.php-cs-fixer.dist.php']);
 
 $config = new PhpCsFixer\Config();
 $config
@@ -30,7 +30,6 @@ $config
         'void_return' => false,
         'yoda_style' => false,
     ])
-    ->setFinder($finder)
-;
+    ->setFinder($finder);
 
 return $config;
